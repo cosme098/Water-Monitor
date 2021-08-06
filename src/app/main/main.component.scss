@@ -1,0 +1,181 @@
+
+.cabeca{
+    background-color: #353a40;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulo{
+    margin: 0;
+    color: #ffff;
+    text-align: center;
+}
+.cards{
+    background-color: #353a40;
+    height: 54vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border-radius: 0.20rem;
+    padding: 0;
+}
+
+.card3{
+    height: 34vh;
+    background-color: #353a40;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border-radius: 0.20rem;
+    padding: 0.4rem;
+    
+}
+
+.rows{
+    height: 6vh;
+    background-color: #1fa6e6;
+    margin: 0.3rem;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0.25rem;
+    align-items: center;
+    transition: background-color 0.15s;
+}
+
+.rows:hover{
+background-color: #353a40;
+}
+
+.divMaior{
+    height: 37.9vh; 
+    background-color: #454e55;
+    margin: 0.2rem;
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+    overflow-y: scroll;
+}
+
+.divMaior::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+.divMaior::-webkit-scrollbar {
+    width: 6px;
+    background: #F4F4F4;
+}
+.divMaior::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+}
+
+
+.adicionar{
+    margin: 0.3rem 0.6rem 0.3rem 0.3rem;
+    outline: none;
+    background-color: #1fa6e6;
+    border: none;
+    border-radius: 0.25rem;
+    color: #ffff;
+    font-weight: 700;
+    width: 7rem;
+    height: 2rem;
+    transition: opacity 0.3s;
+}
+
+.adicionar:hover{
+    opacity: 0.5;
+}
+
+.anotherDiv{
+width: 100%;
+height: 20.8vh;
+padding: 0.5rem;
+overflow-y: scroll;
+background-color: #454e55;
+}
+
+
+
+.anotherDiv::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+.anotherDiv::-webkit-scrollbar {
+    width: 6px;
+    background: #F4F4F4;
+}
+.anotherDiv::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+}
+
+.rows2{
+    width: 100%;
+    background-color: #1fa6e6;
+    height: 5vh;
+    border-radius: 0.25rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.labels{
+    margin: 0;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #ffff;
+}
+
+.tail{
+    display: flex;
+    flex-direction: column;
+}
+
+.tail > .caixas > input{
+margin: 0.2rem;
+outline: none;
+border: none;
+height: 4vh;
+border-radius: 0.25rem;
+padding: 0.2rem;
+}
+
+.caixas{
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media screen and (max-width:600px) {
+    .cabeca{
+        height: 9vh;
+        word-break: break-all;
+    }
+}
+    
+    @media screen and (max-width:360px) {
+       .anotherDiv{
+           height: 20.8vh;
+       }       
+ }
+
+ @media screen and (min-width:601px)
+              and (max-width:1880px) {
+        .anotherDiv{
+            height: 20.8vh;
+        }
+    }
+
+
+.btnP{
+      outline: none;
+      border: none;
+      color: white;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.25rem;
+      border: 2px solid white;
+      cursor: pointer;
+  }

@@ -1,0 +1,31 @@
+body{
+    background-color: tomato;
+}
+
+.wwaves{
+    transform: rotate(180deg);
+    display: flex;
+    height: auto;
+}
+
+.formlogin{
+    position: relative;
+    display: flex;
+    background-color: rgb(255, 99, 71);
+    height: 25rem;
+    width: 20rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px ;
+}
+.inputs{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+    align-items: center;
+}
+.stylebtn{
+    width: 7rem;
+margin-top: 2rem;
+margin-left: 44px;
+}

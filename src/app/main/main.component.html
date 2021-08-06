@@ -1,0 +1,119 @@
+<div style="background-color: #454e55;height: 100%;">
+    <header class="cabeca">
+        <label style="color: transparent;">powerful</label>
+        <h3 class="titulo">Sistema de monitoramento de água</h3>
+        <div style="display: flex;justify-content: flex-end;">
+            <button type="button" class="btn adicionar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Adicionar
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header"
+                            style="background-color: #454e55;color: white;border-bottom: 1.2px solid #43474c;">
+                            <h5 class="modal-title" id="exampleModalLabel">Registrar sensor</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="background-color: #454e55;color: white;">
+                            <form [formGroup]="registro">
+                                <div class="tail">
+                                    <div class="caixas">
+                                        <label>Nome</label>
+                                        <input type="text" placeholder="Ex: Ds18b20" formControlName="nome">
+                                    </div>
+                                    <div class="caixas">
+                                        <label>Endereço Mac</label>
+                                        <input type="text" placeholder="Ex: CC:50:2C:5E:1J"
+                                            formControlName="enderecoMac">
+                                    </div>
+                                    <div class="caixas">
+                                        <label>Endereço</label>
+                                        <input type="text" placeholder="Ex: cidade, bairro, rua, N da casa e Estado"
+                                            formControlName="endereco">
+                                    </div>
+                                    <div class="caixas" style="margin-top: 1rem;">
+                                        <div class="alert alert-warning " *ngIf="!registro.valid" role="alert">
+                                            Preencha todos os campos!
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer"
+                            style="background-color: #454e55;color: white;border-top: 1.2px solid #43474c;">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" (click)="submit()"
+                                data-bs-dismiss="modal">Concluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div style="display: flex;justify-content: space-between;padding-right: 2vw;padding-left: 2vw;margin: 0;"
+        class="row col-lg-12">
+
+        <div class="col-lg-5 cards">
+            <div style="display: flex;justify-content: center;margin: 0.2rem;border-bottom: 0.1rem solid #2e3337;">
+                <h4 style="color: #ffff;">Porcentagem</h4>
+            </div>
+            <div class="chart-wrapper" style="height: 45vh;">
+                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType" [options]="chartOptions" [legend]="true" [colors]="pieChartColors">
+                </canvas>
+            </div>
+        </div>
+        <div class="col-lg-6 cards">
+            <div style="display: flex;justify-content: center;margin: 0.2rem;border-bottom: 0.1rem solid #2e3337;">
+                <h4 style="color: #ffff;">Caixas vazias</h4>
+            </div>
+
+
+            <div style="display: flex;justify-content: space-around;color: #ffff;font-size: 1.2rem;font-weight: 600;">
+                <p>Nome</p>
+                <p>Estado</p>
+                <p>Pendências</p>
+            </div>
+            <div class="divMaior">
+                <div class="rows" *ngFor="let iten of sensoresSeco">
+                    <p class="labels" tooltip="{{iten.nome}}">{{formatNameAll(iten.nome)}}</p>
+                    <p class="labels" *ngIf="iten.state == false; else cheio">Seco</p>
+                    <ng-template #cheio>
+                        <p class="labels">
+                            Cheio
+                        </p> </ng-template>
+                        <div>
+                        <button   [ngStyle]="{'background-color': iten.waiting ? '#0cce73' : '#f0b100' }" (click)="pendent(iten)" class="btnP"> {{ iten.waiting ? 'Solicitado' : 'Pendência' }} </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 card3">
+            <div style="display: flex;justify-content: center;margin: 0.2rem;border-bottom: 0.1rem solid #2e3337;">
+                <h4 style="color: #ffff;">Endereços</h4>
+            </div>
+            <div style="display: flex;justify-content: space-around;color: #ffff;font-size: 1.2rem;font-weight: 600;">
+                <p>Nome</p>
+                <p>Endereço-MAC</p>
+                <p>Endereço</p>
+            </div>
+            <div class="anotherDiv">
+                <div class="rows2" *ngFor="let iten of sensores">
+                    <div style="width: 14vh;">
+                        <p class="labels" tooltip="{{iten.nome}}">{{ formatNameOne(iten.nome)}}</p>
+                    </div>
+                    <div style="width: 16vh;">
+                        <p class="labels" tooltip="{{iten.enderecoMac}}">{{ formatNameOne(iten.enderecoMac)}}</p>
+                    </div>
+                    <div>
+                        <p class="labels" tooltip="{{iten.endereco}}">{{ formatNameOne(iten.endereco)}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
